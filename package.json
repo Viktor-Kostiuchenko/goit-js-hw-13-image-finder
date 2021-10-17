@@ -1,0 +1,30 @@
+{
+  "name": "rest-pagination-infinite-scroll",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://viktor-kostiuchenko.github.io/rest-pagination-infinite-scroll",
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /rest-pagination-infinite-scroll/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Viktor-Kostiuchenko/rest-pagination-infinite-scroll.git"
+  },
+  "keywords": [],
+  "author": "Viktor Kostiuchenko <kostiuchenkoviktor@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "posthtml-include": "^1.6.2",
+    "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
