@@ -1,57 +1,45 @@
-$rad: 0.7rem;
-$dur: 0.3s;
-$color-dark: #2f2f2f;
-$color-light: #fff;
-$color-brand: #57bd84;
-$height: 5rem;
-$font-fam: 'Lato', sans-serif;
-$btn-width: 6rem;
-$bez: cubic-bezier(0, 0, 0.43, 1.49);
-
 body {
-  background: $color-dark;
-  display: flex;
+  background-color: #1d1e1e;
+  opacity: 0.8;
+  background-image: radial-gradient(circle at center center, #a7a7ad, #1d1e1e),
+    repeating-radial-gradient(
+      circle at center center,
+      #a7a7ad,
+      #a7a7ad,
+      18px,
+      transparent 36px,
+      transparent 18px
+    );
+  background-blend-mode: multiply;
+  font-family: 'Lato', sans-serif;
   padding-top: 80px;
-  justify-content: center;
-  min-height: 100vh;
 }
 html {
   box-sizing: border-box;
   height: 100%;
-  font-size: 10px;
 }
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 .form {
   position: relative;
   width: 30rem;
   background: var(--color-brand);
-  border-radius: $rad;
-  margin-bottom: 20px;
+  border-radius: 0.7rem;
   margin: 0 auto 30px;
 }
 .input,
 .button {
-  height: $height;
-  font-family: $font-fam;
+  height: 5rem;
   border: 0;
-  color: $color-dark;
+  color: #2f2f2f;
   font-size: 1.8rem;
 }
 .input[type='search'] {
   outline: 0;
   width: 100%;
-  background: $color-light;
   padding: 0 1.6rem;
-  border-radius: $rad;
+  border-radius: 0.7rem;
   appearance: none;
-  transition: all $dur $bez;
+  transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
   transition-property: width, border-radius;
-  z-index: 1;
   position: relative;
 }
 .button {
@@ -61,11 +49,16 @@ html {
   right: 0;
   min-width: 6rem;
   font-weight: bold;
-  background: $color-brand;
-  border-radius: 0 $rad $rad 0;
+  background: #57bd84;
+  border-radius: 0 0.7rem 0.7rem 0;
+  cursor: pointer;
+  transition: filter 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+}
+.button:hover {
+  filter: brightness(0.8);
 }
 .input:not(:placeholder-shown) {
-  border-radius: $rad 0 0 $rad;
+  border-radius: 0.7rem 0 0 0.7rem;
   width: calc(100% - 6rem);
   + button {
     display: block;
@@ -83,38 +76,33 @@ html {
   width: 1px;
   overflow: hidden;
 }
-
 .list {
-  margin: 0;
   padding: 0 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-bottom: -15px;
+  margin: 0 -15px -15px 0;
 }
-
 .item {
   list-style: none;
-  margin-right: 15px;
-  margin-bottom: 15px;
+  margin: 0 15px 15px 0;
 }
-
+.image {
+  border-radius: 10px;
+}
 .button--more {
   position: unset;
-  display: unset;
-  min-width: 100px;
+  padding: 0 30px;
   border-radius: 0.7rem;
   margin: 30px auto 0;
 }
-
 .blocks {
   display: flex;
   align-items: center;
   position: relative;
   justify-content: center;
 }
-
 .block {
   --sz: 4vmin;
   --tX: 0;
@@ -127,31 +115,26 @@ html {
   transform: translateX(var(--tX));
   mix-blend-mode: lighten;
 }
-
 .white {
   --bg: linear-gradient(-50deg, #ffffff 0%, #ffffff 100%);
   margin-right: var(--hm);
   animation: attract-white var(--animation);
 }
-
 .green {
   --bg: linear-gradient(50deg, #57bd84 0%, #57bd84 100%);
   margin-left: var(--hm);
   animation: attract-green var(--animation);
 }
-
 @keyframes attract-white {
   to {
     transform: translateX(calc(var(--sz) + calc(var(--hm) / 4)));
   }
 }
-
 @keyframes attract-green {
   to {
     transform: translateX(calc(var(--sz) * -1 - calc(var(--hm) / 4)));
   }
 }
-
 .is-hidden {
   display: none;
 }
