@@ -4,5 +4,5 @@ export default {
   submitEl: document.querySelector('.submit'),
   formEl: document.querySelector('.form'),
   moreBtnEl: document.querySelector('.button--more'),
-  circlesEl: document.querySelector('.blocks')
+  circlesEl: document.querySelector('.circles')
 }
