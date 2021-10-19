@@ -1,9 +1,7 @@
 import refs from './refs'
-import imagesTpl from '../templates/imagesList.hbs'
-import {showCirclesLoading} from './buttons'
-
-const BASE_URL = 'https://pixabay.com/api/'
-const KEY = '23833327-aee66bbf86a23c3fb1d188dcb'
+import imagesTpl from '../templates/galleryItem.hbs'
+import { showCirclesLoading } from './loadingCircles'
+import { callModalWindow } from './modalWindow'
 
 class Pixabay {
   constructor() {
@@ -11,6 +9,8 @@ class Pixabay {
     this.page = 1;       
   }
   fetchImages() {
+    const BASE_URL = 'https://pixabay.com/api/'
+    const KEY = '23833327-aee66bbf86a23c3fb1d188dcb'
     let url = `${BASE_URL}?key=${KEY}&q=${this.imagesQuery}&image_type=photo&orientation=horizontal&per_page=12&page=${this.page}`
 
     this.updatePage()
@@ -32,6 +32,7 @@ class Pixabay {
   }
 }
 const pixabay = new Pixabay()
+
 function onSubmit(evt) {
   evt.preventDefault()
 
@@ -41,7 +42,7 @@ function onSubmit(evt) {
   addNewImages()
 }
 function createImagesMarkup(template, data) {
-  refs.listEl.insertAdjacentHTML('beforeend', template(data))
+  refs.galleryEl.insertAdjacentHTML('beforeend', template(data))
 }
 export function addNewImages() {
   showCirclesLoading('is-shown', 'is-hidden')
@@ -52,7 +53,19 @@ export function addNewImages() {
   })
 }
 function clearImagesQuery() {
-  refs.listEl.innerHTML = ''
+  refs.galleryEl.innerHTML = ''
+}
+function onImageClick(evt) {
+  const isImage = evt.target.nodeName === "IMG"
+
+  if (!isImage) {
+    return
+  }
+
+  callModalWindow(evt)
 }
 
+
 refs.formEl.addEventListener('submit', onSubmit)
+refs.galleryEl.addEventListener('click', onImageClick)
+

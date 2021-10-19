@@ -1,6 +1,5 @@
 body {
   background-color: #1d1e1e;
-  opacity: 0.8;
   background-image: radial-gradient(circle at center center, #a7a7ad, #1d1e1e),
     repeating-radial-gradient(
       circle at center center,
@@ -18,7 +17,10 @@ html {
   box-sizing: border-box;
   height: 100%;
 }
-.form {
+img {
+  border-radius: 10px;
+}
+.search-form {
   position: relative;
   width: 30rem;
   background: var(--color-brand);
@@ -76,18 +78,22 @@ html {
   width: 1px;
   overflow: hidden;
 }
-.list {
+
+.gallery {
   padding: 0 20px;
   display: flex;
-  // align-items: center;
-  align-items: flex-end;
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 -15px -15px 0;
 }
 .item {
+  display: flex;
+  align-items: flex-end;
   list-style: none;
   margin: 0 15px 15px 0;
+  & img {
+    cursor: pointer;
+  }
 }
 .stats {
   display: flex;
@@ -105,14 +111,12 @@ html {
   color: #57bd84;
   margin-right: 5px;
 }
-.image {
-  border-radius: 10px;
-}
 .circles {
   display: flex;
   align-items: center;
   position: relative;
   justify-content: center;
+  margin-top: 30px;
 }
 .circle {
   --sz: 4vmin;
@@ -153,4 +157,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.modal {
+  background-color: rgba(87, 189, 132, 0.3);
 }

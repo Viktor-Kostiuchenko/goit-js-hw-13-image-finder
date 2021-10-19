@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagination & scroll</title>
+    <title>Image finder</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
@@ -13,18 +13,20 @@
   </head>
   <body>
     <main>
-      <form class="form" role="search">
-        <label class="label" for="search">Search</label>
+
+      <form class="search-form" role="search">
+        <label class="label" for="search"></label>
         <input class="input" id="search" type="search" placeholder="Search images..." autofocus required autocomplete="off"/>
         <button class="button" id="submit" type="submit">Go</button>
       </form>
-      <ul class="list"></ul>
+
+      <ul class="gallery"></ul>
+
       <div class="circles is-hidden">
         <div class="circle white"></div>
         <div class="circle green"></div>
       </div>
     
-
     </main>
     <script src="./index.js"></script>
   </body>
