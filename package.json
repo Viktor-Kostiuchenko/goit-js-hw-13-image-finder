@@ -18,6 +18,8 @@
   "author": "Viktor Kostiuchenko <kostiuchenkoviktor@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/desktop": "^5.2.0",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
@@ -25,6 +27,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "axios": "^0.23.0",
     "basiclightbox": "^5.0.4",
     "gh-pages": "^3.2.3",
     "material-design-icons": "^3.0.1"

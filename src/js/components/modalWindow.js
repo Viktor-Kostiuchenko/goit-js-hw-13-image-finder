@@ -1,4 +1,6 @@
 import * as basicLightbox from 'basiclightbox'
+import '../../../node_modules/basiclightbox/src/styles/main.scss'
+import '../../sass/styles.scss'
 
 export function callModalWindow(evt) {
   basicLightbox.create(`
@@ -13,3 +15,4 @@ export function callModalWindow(evt) {
     }
   }).show()
 }
+
