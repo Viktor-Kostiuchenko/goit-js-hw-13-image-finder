@@ -41,7 +41,11 @@ function onScroll() {
   if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
     addNewImages()
   }
+    if (window.scrollY > 20 ) {
+    document.querySelector('.scroll-to-top').classList.remove('is-hidden')
+  } 
 }
+
 
 window.addEventListener('scroll', onScroll)
 refs.formEl.addEventListener('submit', onSubmit)
