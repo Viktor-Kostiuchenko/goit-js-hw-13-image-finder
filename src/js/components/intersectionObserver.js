@@ -4,21 +4,18 @@ export function intersectionObserver() {
   const callback = (entries, self) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        console.log(entry)
-        console.log(entry.target)
         addNewImages()
-        self.disconnect();
+        self.unobserve(lastItem)
       }
     });
   };
 
   const options = {
-    threshold: 0.8,
+    threshold: 0.7,
   };
 
   const observer = new IntersectionObserver(callback, options);
   const items = document.querySelectorAll('.item');
   const lastItem = items[items.length - 1]
-
   observer.observe(lastItem)
 }

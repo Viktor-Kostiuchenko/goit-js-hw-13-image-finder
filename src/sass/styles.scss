@@ -164,7 +164,6 @@ img {
     transform: translateX(calc(var(--sz) * -1 - calc(var(--hm) / 4)));
   }
 }
-
 .scroll-to-top {
   display: none;
   margin: 0;
@@ -217,11 +216,9 @@ img {
     transform: scale(0.8);
   }
 }
-
 .scroll-to-top.active {
   display: block;
 }
-
 .is-hidden {
   display: none;
 }

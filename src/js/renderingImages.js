@@ -3,7 +3,7 @@ import imagesTpl from '../templates/galleryItem.hbs'
 import { Pixabay } from './fetchingImages'
 import { showCirclesLoading } from './components/loadingCircles'
 import { callModalWindow } from './components/modalWindow'
-import { onError } from './components/notifications'
+import { onError, onNotice } from './components/notifications'
 import { intersectionObserver } from "./components/intersectionObserver"
 import { createImagesMarkup, clearImagesMarkup} from './components/markup'
 import '../../node_modules/material-design-icons/iconfont/material-icons.css'
@@ -19,8 +19,12 @@ export function addNewImages() {
     }
     createImagesMarkup(imagesTpl, images)
     showCirclesLoading('is-shown', 'is-hidden')
-    intersectionObserver()
-  })
+
+    setTimeout(() => {
+      intersectionObserver()
+    }, 500);
+    
+      })
 }
 
 function onSubmit(evt) {
@@ -28,7 +32,11 @@ function onSubmit(evt) {
   clearImagesMarkup()
   pixabay.resetPage()
   pixabay.imagesQuery = evt.target.elements.search.value
-  addNewImages()
+  if (pixabay.imagesQuery.length < 2) {
+    return onNotice()
+  } else {
+    addNewImages()
+  }
 }
 
 function onImageClick(evt) {
@@ -41,4 +49,3 @@ function onImageClick(evt) {
 
 refs.formEl.addEventListener('submit', onSubmit)
 refs.galleryEl.addEventListener('click', onImageClick)
-
