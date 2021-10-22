@@ -10,7 +10,7 @@ export class Pixabay {
       let url = `${BASE_URL}?key=${KEY}&q=${this.imagesQuery}&image_type=photo&orientation=horizontal&per_page=12&page=${this.page}`
 
       this.updatePage()
-
+      
       try {
         const response = await fetch(url)
         const newImages = await response.json()

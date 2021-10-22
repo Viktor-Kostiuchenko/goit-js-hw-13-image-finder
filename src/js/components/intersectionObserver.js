@@ -1,16 +1,24 @@
-// const options = {
-//   threshold: 1.0,
-//   root: document.querySelector('.gallery')
-// }
+import { addNewImages } from '../renderingImages'
 
-// export function onEntry(entries) {
-//   entries.forEach(entry => {
+export function intersectionObserver() {
+  const callback = (entries, self) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        console.log(entry)
+        console.log(entry.target)
+        addNewImages()
+        self.disconnect();
+      }
+    });
+  };
 
-//     console.log('ok')
+  const options = {
+    threshold: 0.8,
+  };
 
-//   });
-  
-// }
+  const observer = new IntersectionObserver(callback, options);
+  const items = document.querySelectorAll('.item');
+  const lastItem = items[items.length - 1]
 
-// const observer = new IntersectionObserver(onEntry, options)
-// observer.observe(document.querySelector('.item'))
+  observer.observe(lastItem)
+}

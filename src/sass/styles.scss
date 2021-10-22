@@ -176,6 +176,7 @@ img {
   position: fixed;
   right: 40px;
   bottom: 40px;
+  cursor: pointer;
   background-color: transparent;
   transform: rotate(-45deg);
 
@@ -209,7 +210,7 @@ img {
     transform: rotate(45deg);
     border-color: $accent-color;
     height: 120%;
-    top: -89%;
+    top: -88%;
   }
   &:hover::before {
     border-color: $accent-color;
