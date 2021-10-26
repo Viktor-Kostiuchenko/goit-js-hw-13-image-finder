@@ -9,16 +9,14 @@ export class Pixabay {
       const KEY = '23833327-aee66bbf86a23c3fb1d188dcb'
       let url = `${BASE_URL}?key=${KEY}&q=${this.imagesQuery}&image_type=photo&orientation=horizontal&per_page=12&page=${this.page}`
 
-      this.updatePage()
-      
       try {
         const response = await fetch(url)
         const newImages = await response.json()
-        return newImages.hits
+        return newImages
       } catch (error) {
         alert(`Query failed ${error}`)
       }
-  }
+    }
   
     updatePage(){
       this.page +=1

@@ -1,6 +1,6 @@
 import { addNewImages } from '../renderingImages'
 
-export function intersectionObserver() {
+function intersectionObserver() {
   const callback = (entries, self) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -18,4 +18,10 @@ export function intersectionObserver() {
   const items = document.querySelectorAll('.item');
   const lastItem = items[items.length - 1]
   observer.observe(lastItem)
+}
+
+export function setIntersectionObserver() {
+  setTimeout(() => {
+    intersectionObserver()
+  }, 500)
 }
