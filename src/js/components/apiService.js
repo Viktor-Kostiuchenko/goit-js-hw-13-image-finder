@@ -17,7 +17,7 @@ export class Pixabay {
         alert(`Query failed ${error}`)
       }
     }
-  
+    
     updatePage(){
       this.page +=1
     }
