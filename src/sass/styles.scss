@@ -123,11 +123,6 @@ html {
   flex-direction: column;
   list-style: none;
   cursor: pointer;
-  transform: scale(1);
-  transition: transform $cubic;
-}
-.item:hover {
-  transform: scale(1.02);
 }
 .image {
   object-fit: cover;
