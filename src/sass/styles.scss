@@ -4,6 +4,7 @@ $primary-white-color: #ffffff;
 $body-bcg-color: #1d1e1e;
 $body-bcg-accent: #a7a7ad;
 $modal-bcg-color: rgba(0, 130, 200, 0.3);
+$stats-bcg-color: rgba(0, 0, 0, 0.5);
 $circle-white-bcg: linear-gradient(-50deg, #ffffff 0%, #ffffff 100%);
 $circle-accent-bcg: linear-gradient(-50deg, #0082c8 0%, #0082c8 100%);
 $circles-animation: 500ms cubic-bezier(0.3, 0.5, 0.4, 0.9) infinite alternate-reverse;
@@ -31,9 +32,6 @@ body .modal {
 html {
   box-sizing: border-box;
   height: 100%;
-}
-img {
-  border-radius: 10px;
 }
 .search-form {
   position: relative;
@@ -102,18 +100,39 @@ img {
   margin: 0 -15px -15px 0;
 }
 .item {
+  position: relative;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   list-style: none;
   margin: 0 15px 15px 0;
-  & img {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
+
+.image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
 .stats {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: space-around;
+  width: 100%;
+
+  opacity: 0;
+  transition: opacity $cubic;
+  background-color: $stats-bcg-color;
+
   color: $primary-white-color;
+}
+
+.item:hover .stats {
+  opacity: 1;
 }
 .stats-item {
   display: flex;
