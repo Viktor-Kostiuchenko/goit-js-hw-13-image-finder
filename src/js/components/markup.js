@@ -48,7 +48,7 @@ export class Markup {
       };
 
       const options = {
-        threshold: 0.7,
+        rootMargin: '200px'
       };
 
       const observer = new IntersectionObserver(callback, options);

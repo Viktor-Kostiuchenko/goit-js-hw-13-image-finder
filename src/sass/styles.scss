@@ -91,30 +91,50 @@ html {
   width: 1px;
   overflow: hidden;
 }
-
 .gallery {
   padding: 0 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 0 -15px -15px 0;
+}
+.grid {
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: auto auto auto auto;
+  grid-auto-flow: dense;
+  grid-gap: 15px;
+}
+.grid-item:nth-child(1n) {
+  grid-column-start: span 2;
+  grid-row-start: span 2;
+}
+.grid-item:nth-child(2n) {
+  grid-column: span 1;
+  grid-row-start: span 2;
+}
+.grid-item:nth-child(3n) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.grid-item:nth-child(4n) {
+  grid-column: span 1;
+  grid-row: span 1;
 }
 .item {
   position: relative;
   display: flex;
   flex-direction: column;
   list-style: none;
-  margin: 0 15px 15px 0;
   cursor: pointer;
+  transform: scale(1);
+  transition: transform $cubic;
 }
-
+.item:hover {
+  transform: scale(1.02);
+}
 .image {
   object-fit: cover;
   height: 100%;
   width: 100%;
   border-radius: 10px;
 }
-
 .stats {
   position: absolute;
   bottom: 0;
@@ -123,6 +143,9 @@ html {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  height: 25%;
+  padding: 0 5px;
+  border-radius: 0 0 10px 10px;
 
   opacity: 0;
   transition: opacity $cubic;
@@ -130,20 +153,33 @@ html {
 
   color: $primary-white-color;
 }
-
 .item:hover .stats {
   opacity: 1;
 }
 .stats-item {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-basis: calc(100% / 4 - 5px);
+
+  font-size: 9px;
+
   &:not(:last-child) {
     margin-right: 5px;
   }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 17px;
+  }
 }
-.material-icons {
+.stats-item .material-icons {
   color: $accent-color;
   margin-right: 5px;
+  font-size: 10px;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 19px;
+  }
 }
 .circles {
   display: flex;

@@ -4,6 +4,7 @@ import { Pixabay } from './components/apiService'
 import { Modal } from './components/modalWindow'
 import { Notifications } from './components/notifications'
 import { Markup } from './components/markup'
+// import Masonry from 'masonry-layout'
 import '../../node_modules/material-design-icons/iconfont/material-icons.css'
 
 
@@ -11,6 +12,10 @@ const pixabay = new Pixabay()
 const markup = new Markup()
 const notification = new Notifications()
 const modal = new Modal()
+// const msnry = new Masonry('.grid', {
+//   itemSelector: '.grid-item',
+//   columnWidth: 200
+// });
 
 function addNewImages() {
   markup.showCirclesLoading('is-hidden', 'is-shown')
